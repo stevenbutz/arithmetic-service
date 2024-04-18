@@ -31,6 +31,8 @@ jobs:
       - uses: tale/kubectl-action@v1
         with:
             base64-kube-config: ${{ secrets.KUBE_CONFIG }}
-
+            
+      - name: Set execute permission for deploy.sh
+        run: chmod +x ./deploy.sh
       - name: Deploy
         run: ./deploy.sh
